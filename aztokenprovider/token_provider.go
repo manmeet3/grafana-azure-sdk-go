@@ -64,6 +64,7 @@ func NewAzureAccessTokenProvider(settings *azsettings.AzureSettings, credentials
 			tokenCache:     azureTokenCache,
 			tokenRetriever: tokenRetriever,
 		}, nil
+	// msingh todo: add case for certificate support
 	case *azcredentials.AadCurrentUserCredentials:
 		if !userIdentitySupported {
 			err = fmt.Errorf("user identity authentication is not supported by this datasource")
@@ -73,7 +74,6 @@ func NewAzureAccessTokenProvider(settings *azsettings.AzureSettings, credentials
 			err = fmt.Errorf("user identity authentication is not enabled in Grafana config")
 			return nil, err
 		}
-
 		var tokenRetriever TokenRetriever
 
 		if c.ServiceCredentialsEnabled && c.ServiceCredentials != nil && settings.UserIdentityFallbackCredentialsEnabled {

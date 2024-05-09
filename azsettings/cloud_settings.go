@@ -55,6 +55,8 @@ var predefinedClouds = []*AzureCloudSettings{
 	},
 }
 
+// msingh todo: add a function to read config and append AGC clouds to predefinedClouds list
+
 func (*AzureSettings) GetCloud(cloudName string) (*AzureCloudSettings, error) {
 	clouds := getClouds()
 

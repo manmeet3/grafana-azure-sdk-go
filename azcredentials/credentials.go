@@ -39,6 +39,17 @@ type AzureClientSecretCredentials struct {
 	ClientSecret string
 }
 
+// AzureClientCertificateCredentials "App Registration" AAD service identity credentials configured in the datasource.
+type AzureClientCertificateCredentials struct {
+	AzureCloud      string
+	Authority       string
+	TenantId        string
+	ClientId        string
+	CertificatePath string
+	CertificatePw   string
+	CertificateExp  string
+}
+
 // AzureClientSecretOboCredentials "App Registration (On-Behalf-Of)" user identity credentials obtained using
 // service identity configured in the datasource.
 type AzureClientSecretOboCredentials struct {
